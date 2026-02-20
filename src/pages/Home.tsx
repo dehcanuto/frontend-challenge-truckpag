@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { getFilms } from "../services/ghibli";
-import { MovieCard } from "../components/molecules/MovieCard";
+import { MovieCard } from "../components/molecules/MovieCard/MovieCard";
 import { Film } from "../types/films";
 
 export const Home = () => {

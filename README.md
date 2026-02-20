@@ -13,7 +13,7 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
 
 ### ✅ Obrigatórios
 
-- [ ]  Listar filmes com as seguintes informações
+- [x]  Listar filmes com as seguintes informações
     - Imagem do filme
     - Título
     - Ano de lançamento
@@ -21,8 +21,8 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
     - Sinopse
     - Diretor e Produtor
     - Nota de avaliação (campo `rt_score`)
-- [ ]  Marcar o filme como assistido
-- [ ]  Marcar o filme como favorito
+- [x]  Marcar o filme como assistido
+- [x]  Marcar o filme como favorito
 - [ ]  Filtrar os filmes por título através de um campo de texto
 - [ ]  Buscar palavras do filtro de texto na sinopse do filme
     - Ao selecionar a opção “Incluir sinopse na busca**”,** além de filtrar os filmes, também deve destacar o texto buscado na sinopse com alguma cor.
@@ -41,7 +41,7 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
 
 ### ✨ Desejáveis
 
-- [ ]  Utilizar **TypeScript**
+- [x]  Utilizar **TypeScript**
 - [ ]  Implementar responsividade básica
 - [ ]  Persistir os seguintes dados no LocalStorage:
     - Lista de filmes e suas características (assistido / favorito / anotação / avaliação)
@@ -52,9 +52,9 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
     - Adicionar/editar/remover anotação;
 - [ ]  Escrever pelo menos 1 **teste unitário** (ex: botão de favorito ou função de marcação)
 - [ ]  Separação clara de responsabilidades (componentes, serviços de API, etc.)
-- [ ]  Utilizar biblioteca de estilo (Styled-components, Tailwind, Shadcn-ui, etc.)
+- [x]  Utilizar biblioteca de estilo (Styled-components, Tailwind, Shadcn-ui, etc.)
 - [ ]  Utilizar Context API ou uma solução de estado global (Redux, zustand, etc.)
-- [ ]  Utilizar solução para gerenciar estado assíncrono (axios, tanstack query, etc.)
+- [x]  Utilizar solução para gerenciar estado assíncrono (axios, tanstack query, etc.)
 
 ## 💻 Sugestão de interface
 
