@@ -1,6 +1,7 @@
 import React from "react";
 import { Film } from "../../types/films";
 import { Button } from "../atoms/Button/Index";
+import { minutesToHourLabel } from "../../misc/format";
 
 export const MovieCard: React.FC<Film> = ({
   title,
@@ -18,7 +19,7 @@ export const MovieCard: React.FC<Film> = ({
       <div className="p-4 flex flex-col flex-1">
         <h2 className="text-lg font-bold mb-1">{title}</h2>
         <p className="text-sm text-gray-500 mb-2">
-          {release_date} • {running_time}
+          {release_date} • {minutesToHourLabel(Number(running_time))}
         </p>
         <p className="text-yellow-500 font-semibold mb-2">{rt_score}%</p>
         <p className="text-gray-700 text-sm mb-2">
