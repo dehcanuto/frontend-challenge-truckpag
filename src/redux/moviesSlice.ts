@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface MoviesState {
   watched: string[];
   favorites: string[];
+  ratings: Record<string, number>;
 }
 
 const initialState: MoviesState = {
   watched: [],
   favorites: [],
+  ratings: {},
 };
 
 const moviesSlice = createSlice({

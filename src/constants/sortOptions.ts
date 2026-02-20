@@ -1,4 +1,4 @@
-import { SelectTypes } from "../types/inputs";
+import { SelectTypes } from '../types/inputs';
 
 export const sortOptions: SelectTypes[] = [
   { value: 'default', label: 'Default' },
