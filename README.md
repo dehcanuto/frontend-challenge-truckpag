@@ -33,7 +33,7 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
     - Favorito
     - Com anotação.
     - Número de estrelas
-- [ ]  Ordenar filmes (de forma crescente e decrescente) por:
+- [x]  Ordenar filmes (de forma crescente e decrescente) por:
     - Título
     - Duração
     - Avaliação pessoal

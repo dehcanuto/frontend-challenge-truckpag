@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaEye, FaHeart } from 'react-icons/fa6';
 
 import { MovieCardProps } from '../../../types/films';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
@@ -56,18 +57,30 @@ export const MovieCard: React.FC<MovieCardProps> = ({
           <span>Producer: {producer}</span>
         </div>
         <div className="mt-auto flex flex-col gap-2">
-          <Button
-            onClick={() => dispatch(toggleWatched(id))}
-            className={isWatched ? 'bg-green-200' : ''}
-          >
-            {isWatched ? 'Watched' : 'Mark Watched'}
-          </Button>
-          <Button
-            onClick={() => dispatch(toggleFavorite(id))}
-            className={isFavorite ? 'bg-yellow-200' : ''}
-          >
-            {isFavorite ? 'Favorite' : 'Add Favorite'}
-          </Button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <Button
+              onClick={() => dispatch(toggleWatched(id))}
+              className={
+                isWatched
+                  ? 'bg-success text-dark'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }
+            >
+              <FaEye />
+              {isWatched ? 'Watched' : 'Mark Watched'}
+            </Button>
+            <Button
+              onClick={() => dispatch(toggleFavorite(id))}
+              className={
+                isFavorite
+                  ? 'bg-error'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }
+            >
+              <FaHeart />
+              {isFavorite ? 'Favorite' : 'Add Favorite'}
+            </Button>
+          </div>
         </div>
       </div>
     </div>
