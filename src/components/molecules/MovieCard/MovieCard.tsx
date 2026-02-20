@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FaEye, FaHeart, FaRegNoteSticky, FaStar } from 'react-icons/fa6';
 
-
 import { MovieCardProps } from '../../../types/films';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { toggleFavorite, toggleWatched } from '../../../redux/moviesSlice';
@@ -34,7 +33,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 
   const isRated = ratings[id];
   const isNoted = notes[id];
-  console.log('isRated', isRated)
 
   return (
     <div className="bg-white border rounded-lg shadow-md overflow-hidden flex flex-col">
@@ -54,7 +52,9 @@ export const MovieCard: React.FC<MovieCardProps> = ({
               {[1, 2, 3, 4, 5].map((star) => (
                 <FaStar
                   key={star}
-                  className={star <= isRated ? 'text-yellow-500' : 'text-gray-300'}
+                  className={
+                    star <= isRated ? 'text-yellow-500' : 'text-gray-300'
+                  }
                 />
               ))}
             </div>
@@ -115,14 +115,16 @@ export const MovieCard: React.FC<MovieCardProps> = ({
               {isFavorite ? 'Favorite' : 'Add Favorite'}
             </Button>
           </div>
-          <Button onClick={() => setShowNotesModal(true)}
+          <Button
+            onClick={() => setShowNotesModal(true)}
             className={
-                isNoted
-                  ? 'bg-warning text-dark'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }>
+              isNoted
+                ? 'bg-warning text-dark'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }
+          >
             <FaRegNoteSticky />
-            {isNoted ? "Edit Notes" : "Add Notes"}
+            {isNoted ? 'Edit Notes' : 'Add Notes'}
           </Button>
         </div>
       </div>
