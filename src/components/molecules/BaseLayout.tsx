@@ -8,7 +8,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <header className="bg-white shadow p-4">
-        <div className="container mx-auto flex items-center justify-between">
+        <div className="container px-6 mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-bold">Studio Ghibli Collection</h1>
           <nav></nav>
         </div>
