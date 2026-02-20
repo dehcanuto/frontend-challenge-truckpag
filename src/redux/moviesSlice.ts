@@ -1,15 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface MoviesState {
-  watched: string[];
-  favorites: string[];
-  ratings: Record<string, number>;
-}
+import { MoviesState } from '../types/state';
 
 const initialState: MoviesState = {
   watched: [],
   favorites: [],
   ratings: {},
+  notes: {},
 };
 
 const moviesSlice = createSlice({
@@ -30,8 +26,17 @@ const moviesSlice = createSlice({
         state.favorites.push(action.payload);
       }
     },
+    setRating: (
+      state,
+      action: PayloadAction<{ id: string; rating: number }>,
+    ) => {
+      state.ratings[action.payload.id] = action.payload.rating;
+    },
+    setNote: (state, action: PayloadAction<{ id: string; note: string }>) => {
+      state.notes[action.payload.id] = action.payload.note;
+    },
   },
 });
 
-export const { toggleWatched, toggleFavorite } = moviesSlice.actions;
+export const { toggleWatched, toggleFavorite, setRating, setNote } = moviesSlice.actions;
 export default moviesSlice.reducer;

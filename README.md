@@ -26,8 +26,8 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
 - [x]  Filtrar os filmes por título através de um campo de texto
 - [x]  Buscar palavras do filtro de texto na sinopse do filme
     - Ao selecionar a opção “Incluir sinopse na busca**”,** além de filtrar os filmes, também deve destacar o texto buscado na sinopse com alguma cor.
-- [ ]  Adicionar anotações de texto a um filme
-- [ ]  Adicionar, junto à anotação, uma avaliação pessoal de 1 a 5 estrelas
+- [x]  Adicionar anotações de texto a um filme
+- [x]  Adicionar, junto à anotação, uma avaliação pessoal de 1 a 5 estrelas
 - [ ]  Filtrar os filmes por:
     - Assistido
     - Favorito
