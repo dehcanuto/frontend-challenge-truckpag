@@ -1,0 +1,5 @@
+.button {
+  @apply w-full bg-gray-100 text-gray-700 py-2 rounded-md flex items-center justify-center gap-2;
+  @apply hover:bg-gray-200;
+  @apply transition-colors duration-200;
+}
