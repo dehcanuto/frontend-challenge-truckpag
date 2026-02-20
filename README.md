@@ -23,8 +23,8 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
     - Nota de avaliação (campo `rt_score`)
 - [x]  Marcar o filme como assistido
 - [x]  Marcar o filme como favorito
-- [ ]  Filtrar os filmes por título através de um campo de texto
-- [ ]  Buscar palavras do filtro de texto na sinopse do filme
+- [x]  Filtrar os filmes por título através de um campo de texto
+- [x]  Buscar palavras do filtro de texto na sinopse do filme
     - Ao selecionar a opção “Incluir sinopse na busca**”,** além de filtrar os filmes, também deve destacar o texto buscado na sinopse com alguma cor.
 - [ ]  Adicionar anotações de texto a um filme
 - [ ]  Adicionar, junto à anotação, uma avaliação pessoal de 1 a 5 estrelas
@@ -51,9 +51,9 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
     - Marcar/desmarcar o filme como assistido, favorito;
     - Adicionar/editar/remover anotação;
 - [ ]  Escrever pelo menos 1 **teste unitário** (ex: botão de favorito ou função de marcação)
-- [ ]  Separação clara de responsabilidades (componentes, serviços de API, etc.)
+- [x]  Separação clara de responsabilidades (componentes, serviços de API, etc.)
 - [x]  Utilizar biblioteca de estilo (Styled-components, Tailwind, Shadcn-ui, etc.)
-- [ ]  Utilizar Context API ou uma solução de estado global (Redux, zustand, etc.)
+- [x]  Utilizar Context API ou uma solução de estado global (Redux, zustand, etc.)
 - [x]  Utilizar solução para gerenciar estado assíncrono (axios, tanstack query, etc.)
 
 ## 💻 Sugestão de interface
