@@ -1,18 +1,7 @@
 import React from "react";
 import { FaChevronDown, FaEye, FaHeart, FaRegNoteSticky, FaStar } from "react-icons/fa6";
 import { Button } from "../atoms/Button/Button";
-
-type FiltersState = {
-  watched: boolean;
-  favorites: boolean;
-  withNotes: boolean;
-  rating: string;
-};
-
-interface MovieFiltersProps {
-  filters: FiltersState;
-  onFilterChange: (filters: FiltersState) => void;
-}
+import { FiltersState, MovieFiltersProps } from "../../types/filters";
 
 export const MovieFilters: React.FC<MovieFiltersProps> = ({
   filters,

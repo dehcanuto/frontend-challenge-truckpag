@@ -4,20 +4,17 @@ import { Film } from '../../types/films';
 import { MovieCard } from '../molecules/MovieCard/MovieCard';
 import { sortOptions } from '../../constants/sortOptions';
 import { SelectTypes } from '../../types/inputs';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { MovieFilters } from './MovieFilters';
+import { clearFilters, setFilters } from '../../redux/slices/filtersSlice';
+import { FiltersState, MovieFiltersState } from '../../types/filters';
 
 const MovieList = () => {
   const [films, setFilms] = useState<Film[]>([]);
-  const [search, setSearch] = useState('');
-  const [searchInDescription, setSearchInDescription] = useState(false);
-  const [sortValue, setSortValue] = useState('default');
-  const [filters, setFilters] = useState({
-    watched: false,
-    favorites: false,
-    withNotes: false,
-    rating: 'All Movies',
-  });
+  const dispatch = useAppDispatch();
+
+  const filters = useAppSelector((state) => state.filters);
+  const { search, searchInDescription, sortValue } = filters;
 
   const ratings = useAppSelector((state) => state.movies.ratings);
   const watchedMovies = useAppSelector((state) => state.movies.watched);
@@ -28,27 +25,31 @@ const MovieList = () => {
     getFilms().then(setFilms);
   }, []);
 
-  const handleFilterChange = (newFilters: typeof filters) => {
-    setFilters(newFilters);
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    dispatch(setFilters({ search: e.target.value }));
+
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    dispatch(setFilters({ sortValue: e.target.value }));
+
+  const handleToggleSearchDescription = () =>
+    dispatch(setFilters({ searchInDescription: !searchInDescription }));
+
+  const handleFilterChange = (newFilters: MovieFiltersState) => {
+    dispatch(setFilters(newFilters));
   };
 
-  const clearFilters = () => {
-    setSearch('');
-    setSearchInDescription(false);
-    setSortValue('default');
-    setFilters({
-      watched: false,
-      favorites: false,
-      withNotes: false,
-      rating: 'All Movies',
-    });
+  const handleClearFilters = () => {
+    dispatch(clearFilters());
   };
 
   const textFilteredFilms = films.filter((film) => {
-    const titleMatch = film.title.toLowerCase().includes(search.toLowerCase());
-    const descriptionMatch = searchInDescription
-      ? film.description.toLowerCase().includes(search.toLowerCase())
-      : false;
+    const title = film?.title?.toLowerCase?.() || '';
+    const description = film?.description?.toLowerCase?.() || '';
+    const query = search?.toLowerCase?.() || '';
+
+    const titleMatch = title.includes(query);
+    const descriptionMatch = searchInDescription ? description.includes(query) : false;
+
     return titleMatch || descriptionMatch;
   });
 
@@ -79,7 +80,7 @@ const MovieList = () => {
       let ratingPass = false;
       if (rating === 'Unrated') ratingPass = ratingValue === 0;
       else if (rating === 'Any Rating ⭐') ratingPass = ratingValue > 0;
-      else if (rating.match(/^[1-5]/)) {
+      else if (rating?.match?.(/^[1-5]/)) {
         const target = parseInt(rating[0]);
         ratingPass = ratingValue === target;
       }
@@ -137,7 +138,7 @@ const MovieList = () => {
           type="text"
           placeholder="Search movies..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleSearchChange}
           className="border rounded px-2 py-2 w-full rounded-lg focus:outline-none focus:ring-0"
         />
         <div className="flex items-center justify-between">
@@ -145,14 +146,14 @@ const MovieList = () => {
             <input
               type="checkbox"
               checked={searchInDescription}
-              onChange={() => setSearchInDescription(!searchInDescription)}
+              onChange={handleToggleSearchDescription}
             />
             Include movie synopsis in search
           </label>
           <select
             className="border rounded px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
             value={sortValue}
-            onChange={(e) => setSortValue(e.target.value)}
+            onChange={handleSortChange}
           >
             {sortOptions.map((option: SelectTypes) => (
               <option key={option.value} value={option.value}>
@@ -183,7 +184,7 @@ const MovieList = () => {
               No movies match the selected filters.
             </p>
             <button
-              onClick={clearFilters}
+              onClick={handleClearFilters}
               className="px-4 py-2 text-sm bg-gray-900 text-white rounded-md hover:bg-blue-700 transition-all"
             >
               Clear Filters

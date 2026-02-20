@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setRating, setNote } from '../../redux/moviesSlice';
+import { setRating, setNote } from '../../redux/slices/moviesSlice';
 import { Button } from '../atoms/Button/Button';
 
 interface NotesModalProps {
