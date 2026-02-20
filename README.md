@@ -47,7 +47,7 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
     - Lista de filmes e suas características (assistido / favorito / anotação / avaliação)
     - Filtros selecionados
     - Opção de ordenação selecionada
-- [ ]  Adicionar mensagens toast para as operações
+- [x]  Adicionar mensagens toast para as operações
     - Marcar/desmarcar o filme como assistido, favorito;
     - Adicionar/editar/remover anotação;
 - [ ]  Escrever pelo menos 1 **teste unitário** (ex: botão de favorito ou função de marcação)

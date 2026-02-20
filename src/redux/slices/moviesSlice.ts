@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
+
 import { MoviesState } from '../../types/state';
 
 const loadState = (): MoviesState => {
@@ -20,8 +22,10 @@ const moviesSlice = createSlice({
       const id = action.payload;
       if (state.watched.includes(id)) {
         state.watched = state.watched.filter((f) => f !== id);
+        toast('Removed from watched list');
       } else {
         state.watched.push(id);
+        toast.success('Marked as watched');
       }
       localStorage.setItem('moviesData', JSON.stringify(state));
     },
@@ -29,19 +33,35 @@ const moviesSlice = createSlice({
       const id = action.payload;
       if (state.favorites.includes(id)) {
         state.favorites = state.favorites.filter((f) => f !== id);
+        toast('Removed from favorites');
       } else {
         state.favorites.push(id);
+        toast.success('Added to favorites');
       }
       localStorage.setItem('moviesData', JSON.stringify(state));
     },
     setNote: (state, action: PayloadAction<{ id: string; note: string }>) => {
       const { id, note } = action.payload;
+
+      const isNew = !state.notes[id] && note.trim().length > 0;
+      const isEmpty = note.trim().length === 0;
+
+      if (isEmpty) {
+        delete state.notes[id];
+        toast('Note removed');
+      } else if (isNew) {
+        toast.success('Note added');
+      } else {
+        toast('Note updated');
+      }
+
       state.notes[id] = note;
       localStorage.setItem('moviesData', JSON.stringify(state));
     },
     setRating: (state, action: PayloadAction<{ id: string; rating: number }>) => {
       const { id, rating } = action.payload;
       state.ratings[id] = rating;
+      toast.success(`Rated ${rating}`);
       localStorage.setItem('moviesData', JSON.stringify(state));
     },
   },

@@ -7,7 +7,7 @@ import { SelectTypes } from '../../types/inputs';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { MovieFilters } from './MovieFilters';
 import { clearFilters, setFilters } from '../../redux/slices/filtersSlice';
-import { FiltersState, MovieFiltersState } from '../../types/filters';
+import { MovieFiltersState } from '../../types/filters';
 
 const MovieList = () => {
   const [films, setFilms] = useState<Film[]>([]);

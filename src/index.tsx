@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -14,6 +15,16 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: '#1f2937',
+            color: '#fff',
+            borderRadius: '8px',
+          },
+        }}
+      />
     </Provider>
   </React.StrictMode>,
 );
