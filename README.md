@@ -1,13 +1,169 @@
-## 🎯 **Objetivo do Desafio**
+# Frontend Challenge — Truckpag - André Canuto
 
-Avaliar sua habilidade de desenvolver uma aplicação com **React**, utilizando **JavaScript** (ou **TypeScript**, se desejar), consumindo uma **API pública real** e aplicando boas práticas de estruturação de componentes, manipulação de estado e interações com o usuário.
+Aplicação desenvolvida como parte de um desafio técnico **Frontend Truckpag**, que exibe filmes do estúdio **Studio Ghibli** consumindo a API pública [GhibliAPI](https://ghibliapi.vercel.app).  
+O projeto inclui recursos de listagem, busca, filtros dinâmicos, ordenação e persistência de dados no LocalStorage, além de uma camada de gerenciamento de estado com Redux e testes automatizados.
 
-## 📜 **Descrição**
+---
 
-Você deverá desenvolver uma aplicação que consome a API pública do [Studio Ghibli](https://ghibliapi.vercel.app/#tag/Films) e exibe uma lista de filmes do estúdio com suas respectivas informações e algumas opções de filtro/ações nessa lista, conforme especificado a seguir:
+## 🚀 Tecnologias e Ferramentas
 
-> ⚠️ O desafio deve ser implementado utilizando a versão mais recente do React com **javascript** ou **typescript.** Busque desenvolver uma interface agradável e legível (não precisa ser um design incrível, mas bem organizada)
+| Categoria | Ferramenta |
+|------------|-------------|
+| **Framework** | [React 19](https://react.dev/) |
+| **Linguagem** | [TypeScript](https://www.typescriptlang.org/) |
+| **Estilização** | [TailwindCSS](https://tailwindcss.com/) |
+| **Gerenciamento de Estado** | [Redux Toolkit](https://redux-toolkit.js.org/) |
+| **Requisições HTTP** | [Axios](https://axios-http.com/) |
+| **Query Cache / Async State** | [@tanstack/react-query](https://tanstack.com/query) |
+| **Feedbacks visuais** | [React Hot Toast](https://react-hot-toast.com/) |
+| **Ícones** | [React Icons](https://react-icons.github.io/react-icons/) |
+| **Testes** | [Jest](https://jestjs.io/) + [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) |
+| **Formatação e lint** | [Prettier](https://prettier.io/) + ESLint padrão CRA |
 
+---
+
+## ⚙️ Instalação e Execução
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seuusuario/frontend-challenge-truckpag.git
+cd frontend-challenge-truckpag
+```
+
+### 2. Instalar dependências
+
+```bash
+npm install
+```
+
+### 3. Configurar variáveis de ambiente
+
+Crie um arquivo `.env` na raiz e adicione:
+
+```bash
+VITE_GHIBLI_API=https://ghibliapi.vercel.app
+```
+
+> ⚠️ O valor padrão já é utilizado internamente, então esse passo é opcional.
+
+### 4. Rodar o projeto localmente
+
+```bash
+npm start
+```
+
+A aplicação ficará disponível em:
+```
+http://localhost:3000
+```
+
+---
+
+## 🧩 Funcionalidades Implementadas
+
+**Listagem de Filmes**  
+Exibe os filmes obtidos da API pública do Studio Ghibli.
+
+**Busca Dinâmica**  
+Filtra por título e opcionalmente por descrição (sinopse).
+
+**Filtros Combináveis**  
+Permite combinar os seguintes filtros simultaneamente:
+- Filmes assistidos  
+- Filmes favoritos  
+- Filmes com anotações  
+- Filtros por nota (⭐ 1–5, não avaliados, etc.)
+
+**Ordenação Personalizada**
+Ordenação por:
+- Título (A-Z / Z-A)  
+- Duração (menor / maior)  
+- Avaliação pessoal  
+- Score (Rotten Tomatoes)
+
+**Anotações e Avaliações**
+Cada filme pode ser avaliado e receber notas e comentários personalizados.
+
+**Persistência Local**
+Todos os dados (notas, favoritos, assistidos, filtros e ordenação) são salvos no `LocalStorage`.
+
+**Layout Responsivo**
+Interface moderna e responsiva construída com **TailwindCSS**.
+
+**Mensagens Toast**
+Feedbacks visuais amigáveis ao realizar ações como:
+- Marcar/desmarcar filme como assistido ou favorito.  
+- Adicionar, editar ou excluir anotações.
+
+**Testes Automatizados**
+Testes unitários cobrindo slices do Redux e comportamento de componentes principais.
+
+---
+
+## 🧪 Rodando os Testes
+
+O projeto utiliza **Jest + React Testing Library**.
+
+### Executar todos os testes:
+```bash
+npm test
+```
+
+### Executar uma única vez (sem watch mode):
+```bash
+npm test -- --watchAll=false
+```
+
+Os principais testes cobrem:
+- `moviesSlice` — manipulação de notas, favoritos e assistidos.  
+- `filtersSlice` — persistência e reset de filtros.  
+- `MovieCard` — renderização de dados de filmes.  
+- `MovieList` — busca e filtragem dinâmica.
+
+---
+
+## 🧠 Estrutura de Pastas
+
+```
+src/
+├── components/
+│   ├── atoms/
+│   ├── └── Button/
+│   ├── molecules/
+│   │   ├── MovieCard/
+│   │   └── BaseLayout/
+│   └── organisms/
+│       ├── MovieList/
+│       ├── MovieFilters/
+│       └── NotesModal/
+├── constants/
+│   └── sortOptions.ts
+├── redux/
+│   └── slices/
+│       ├── filtersSlice.ts
+│       └── moviesSlice.ts
+│   ├── hooks.ts
+│   └── store.ts
+├── services/
+│   └── ghibli.ts
+├── types/
+├── __tests__/           # testes unitários de slices
+└── setupTests.ts        # configuração Jest + mocks globais
+```
+
+---
+
+## 🧰 Scripts Disponíveis
+
+| Script | Descrição |
+|---------|------------|
+| `npm start` | Executa a aplicação localmente |
+| `npm run build` | Cria a build de produção |
+| `npm test` | Executa os testes |
+| `npm run format` | Formata os arquivos com Prettier |
+
+---
 
 ## 🔎 **Requisitos Funcionais**
 
@@ -56,28 +212,16 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
 - [x]  Utilizar Context API ou uma solução de estado global (Redux, zustand, etc.)
 - [x]  Utilizar solução para gerenciar estado assíncrono (axios, tanstack query, etc.)
 
-## 💻 Sugestão de interface
+---
 
-Segue o deploy abaixo com uma sugestão de interface para a implementação do desafio. Mas claro, sinta-se à vontade para imprimir seu estilo próprio durante a implementação:
-[Versão online](https://v0-ghibli-movie-app.vercel.app/)
-* * *
+## 👨‍💻 Autor
 
-📦 **Entrega**
---------------
+Desenvolvido por **André Canuto**  
+📧 [LinkedIn](https://www.linkedin.com/in/andrecanuto) • [GitHub](https://github.com/seuusuario)
 
-1.  Inclua um `README.md` com:
-    
-    *   Instruções de instalação e execução.
-        
-    *   Ferramentas utilizadas.
-        
-    *   Quais requisitos foram implementados.
-        
-    *   Se aplicável, como rodar os testes.
-        
+---
 
-* * *
+## 📜 Licença
 
-* * *
-
-💡 **Nota**: O foco está na organização, clareza e qualidade do código — não necessariamente na completude ou complexidade. Explique suas decisões, use commits claros, e divirta-se com o desafio!
+Este projeto é distribuído sob a licença MIT.  
+Sinta-se à vontade para estudar, modificar e utilizar o código.
