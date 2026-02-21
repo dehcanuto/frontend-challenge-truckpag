@@ -14,7 +14,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
         </div>
       </header>
 
-      <main className="flex-1 container mx-auto p-6">{children}</main>
+      <main className="flex-1 container mx-auto sm:p-6">{children}</main>
 
       <footer className="bg-white shadow-inner p-4 text-center text-sm text-gray-500">
         &copy; 2026 Studio Ghibli App

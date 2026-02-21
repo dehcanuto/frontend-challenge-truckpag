@@ -37,9 +37,9 @@ export const MovieFilters: React.FC<MovieFiltersProps> = ({
   return (
     <div className="flex flex-col">
       <span className="text-sm font-semibold mb-2">Filters:</span>
-      <div className="flex flex-wrap gap-2 mb-4 items-center">
+      <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 mb-4 items-center">
         <Button
-          className={`max-w-36 px-3 py-1 rounded-md border text-sm ${
+          className={`sm:max-w-36 px-3 py-1 rounded-md border text-sm ${
             watched
               ? 'bg-green-100 border-green-400 text-green-700'
               : 'border-gray-300 text-gray-600 hover:bg-gray-100'
@@ -51,7 +51,7 @@ export const MovieFilters: React.FC<MovieFiltersProps> = ({
         </Button>
 
         <Button
-          className={`max-w-36 px-3 py-1 rounded-md border text-sm ${
+          className={`sm:max-w-36 px-3 py-1 rounded-md border text-sm ${
             favorites
               ? 'bg-red-100 border-red-400 text-red-700'
               : 'border-gray-300 text-gray-600 hover:bg-gray-100'
@@ -63,7 +63,7 @@ export const MovieFilters: React.FC<MovieFiltersProps> = ({
         </Button>
 
         <Button
-          className={`max-w-36 px-3 py-1 rounded-md border text-sm ${
+          className={`sm:max-w-36 px-3 py-1 rounded-md border text-sm ${
             withNotes
               ? 'bg-blue-100 border-blue-400 text-blue-700'
               : 'border-gray-300 text-gray-600 hover:bg-gray-100'
@@ -76,7 +76,7 @@ export const MovieFilters: React.FC<MovieFiltersProps> = ({
 
         <div className="relative">
           <Button
-            className={`max-w-44 px-3 py-1 rounded-md border text-sm flex items-center gap-2 ${
+            className={`sm:max-w-44 px-3 py-1 rounded-md border text-sm flex items-center gap-2 ${
               ratingButtonLabel !== 'Rating'
                 ? 'bg-yellow-100 border-yellow-400 text-yellow-700'
                 : 'border-gray-300 text-gray-600 hover:bg-gray-100'
