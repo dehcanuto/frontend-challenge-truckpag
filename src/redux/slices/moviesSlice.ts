@@ -6,7 +6,9 @@ import { MoviesState } from '../../types/state';
 const loadState = (): MoviesState => {
   try {
     const saved = localStorage.getItem('moviesData');
-    return saved ? JSON.parse(saved) : { watched: [], favorites: [], notes: {}, ratings: {} };
+    return saved
+      ? JSON.parse(saved)
+      : { watched: [], favorites: [], notes: {}, ratings: {} };
   } catch {
     return { watched: [], favorites: [], notes: {}, ratings: {} };
   }
@@ -58,14 +60,24 @@ const moviesSlice = createSlice({
       state.notes[id] = note;
       localStorage.setItem('moviesData', JSON.stringify(state));
     },
-    setRating: (state, action: PayloadAction<{ id: string; rating: number }>) => {
+    setRating: (
+      state,
+      action: PayloadAction<{ id: string; rating: number }>,
+    ) => {
       const { id, rating } = action.payload;
       state.ratings[id] = rating;
       toast.success(`Rated ${rating}`);
       localStorage.setItem('moviesData', JSON.stringify(state));
     },
+    clearMovies: () => initialState,
   },
 });
 
-export const { toggleWatched, toggleFavorite, setNote, setRating } = moviesSlice.actions;
+export const {
+  toggleWatched,
+  toggleFavorite,
+  setNote,
+  setRating,
+  clearMovies,
+} = moviesSlice.actions;
 export default moviesSlice.reducer;

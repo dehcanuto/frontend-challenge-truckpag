@@ -3,7 +3,10 @@ import { FaEye, FaHeart, FaRegNoteSticky, FaStar } from 'react-icons/fa6';
 
 import { MovieCardProps } from '../../../types/films';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { toggleFavorite, toggleWatched } from '../../../redux/slices/moviesSlice';
+import {
+  toggleFavorite,
+  toggleWatched,
+} from '../../../redux/slices/moviesSlice';
 import { minutesToHourLabel } from '../../../misc/format';
 import { Button } from '../../atoms/Button/Button';
 import { NotesModal } from '../../organisms/NotesModal';

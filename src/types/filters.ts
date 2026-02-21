@@ -14,8 +14,8 @@ export type MovieFiltersState = Pick<
 >;
 
 export interface MovieFiltersProps {
-    filters: FiltersState;
-    onFilterChange: (filters: {
+  filters: FiltersState;
+  onFilterChange: (filters: {
     watched: boolean;
     favorites: boolean;
     withNotes: boolean;

@@ -42,7 +42,7 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
 ### ✨ Desejáveis
 
 - [x]  Utilizar **TypeScript**
-- [ ]  Implementar responsividade básica
+- [x]  Implementar responsividade básica
 - [x]  Persistir os seguintes dados no LocalStorage:
     - Lista de filmes e suas características (assistido / favorito / anotação / avaliação)
     - Filtros selecionados
@@ -50,7 +50,7 @@ Você deverá desenvolver uma aplicação que consome a API pública do [Studio 
 - [x]  Adicionar mensagens toast para as operações
     - Marcar/desmarcar o filme como assistido, favorito;
     - Adicionar/editar/remover anotação;
-- [ ]  Escrever pelo menos 1 **teste unitário** (ex: botão de favorito ou função de marcação)
+- [x]  Escrever pelo menos 1 **teste unitário** (ex: botão de favorito ou função de marcação)
 - [x]  Separação clara de responsabilidades (componentes, serviços de API, etc.)
 - [x]  Utilizar biblioteca de estilo (Styled-components, Tailwind, Shadcn-ui, etc.)
 - [x]  Utilizar Context API ou uma solução de estado global (Redux, zustand, etc.)

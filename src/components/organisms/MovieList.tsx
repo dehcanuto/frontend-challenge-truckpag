@@ -48,7 +48,9 @@ const MovieList = () => {
     const query = search?.toLowerCase?.() || '';
 
     const titleMatch = title.includes(query);
-    const descriptionMatch = searchInDescription ? description.includes(query) : false;
+    const descriptionMatch = searchInDescription
+      ? description.includes(query)
+      : false;
 
     return titleMatch || descriptionMatch;
   });
@@ -137,7 +139,7 @@ const MovieList = () => {
         <input
           type="text"
           placeholder="Search movies..."
-          value={search}
+          value={search || ''}
           onChange={handleSearchChange}
           className="border rounded px-2 py-2 w-full rounded-lg focus:outline-none focus:ring-0"
         />
